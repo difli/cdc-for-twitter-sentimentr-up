@@ -32,6 +32,16 @@ services:
       - ./config/env-file-docker
     networks:
       - backend
-    
+
+#  twitter-reader:
+#    image: dieterfl/twitter-reader:latest
+#    container_name: twitter-reader
+#    env_file:
+#      - ./config/env-file-docker
+#    volumes:
+#      - ./your-input-files/twitter-credentials.json:/credential-files/twitter-credentials.json
+#    networks:
+#      - backend
+
 networks:
   backend:
