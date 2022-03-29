@@ -14,3 +14,4 @@ docker exec -it pulsar /pulsar/bin/pulsar-admin source create --name cassandra-s
     "loadBalancing.localDc": "datacenter1",
     "auth.provider": "PLAIN"
 }'
+docker exec -it pulsar /pulsar/bin/pulsar-client consume public/default/data-twitter.tweet_by_id -s tweet-data -n 60 -r 1
