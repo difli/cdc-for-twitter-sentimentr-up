@@ -38,3 +38,10 @@ sh init-2.sh
 - you should now see realtime date in twitter-ui: [localhost:8081](http://localhost:8081)
 - you should see cdc in action
 - see the terminal where you executed "sh init-2.sh". There you see all mutations of table tweet_by_id. These mutations are streamed as events/messages to topic:' public/default/data-twitter.tweet_by_id'. You can consume this topic by any pulsar sink to downstream the data in realtime to the downstream technologies of your choice for various use cases to leverage your data.
+
+## Monitoring
+- grafana and prometheus is preconfigured with some pulsar dashboards
+- open [localhost:3000](localhost:3000) in your browser
+- login with admin/admin
+- enjoy the preconfigured pulsar dashboards
+![alt text](/images/grafana-topics.png)

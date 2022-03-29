@@ -32,19 +32,32 @@ services:
     networks:
       - backend
 
-  # Pulsar dashboard for convenience
-  dashboard:
-    image: apachepulsar/pulsar-dashboard
-    container_name: dashboard
+  # prometheus and grafana
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./config/standalone.yml.template:/etc/prometheus/prometheus.yml
     depends_on:
       - pulsar
-    ports:
-      - 80:80
-    environment:
-      - SERVICE_URL=http://pulsar:8080
     networks:
       - backend
 
+  grafana:
+    image: grafana/grafana-oss
+    container_name: grafana
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana/config.ini:/etc/grafana/config.ini
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+    depends_on:
+      - prometheus
+    networks:
+      - backend
 
 networks:
   backend:
