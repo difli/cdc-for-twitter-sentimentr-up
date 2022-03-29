@@ -18,7 +18,7 @@ docker-compose -f docker-compose-1.yml up -d
 ```
 - wait till cassandra is completely up and running
 ```
-watch -n 5 "docker exec -it cassandra nodetool status"
+watch "docker exec -it cassandra nodetool status"
 ```
 - run init-1 script to create keyspace, tables and topics
 ```
