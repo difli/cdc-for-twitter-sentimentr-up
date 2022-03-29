@@ -41,7 +41,7 @@ services:
     ports:
       - 80:80
     environment:
-      - SERVICE_URL: http://pulsar:8080
+      - SERVICE_URL=http://pulsar:8080
     networks:
       - backend
 
